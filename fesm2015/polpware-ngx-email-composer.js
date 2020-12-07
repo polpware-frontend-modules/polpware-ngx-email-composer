@@ -101,6 +101,9 @@ class EmailFormAbstractComponent {
     get isSubmitDisabled() {
         return this.emails.length === 0 || this.alertType === AlertTypeEnum.running;
     }
+    textChanged(evt) {
+        this.onTextChange.emit(evt);
+    }
     submit() {
         const emails = [];
         this.emails.forEach(elem => {
@@ -174,5 +177,5 @@ EmailFormAbstractComponent.ɵdir = ɵɵdefineDirective({ type: EmailFormAbstract
  * Generated bundle index. Do not edit.
  */
 
-export { AlertTypeEnum, EmailFormAbstractComponent, NgxEmailComposerModule, parseEmails, parseOnlyEmails };
+export { AlertTypeEnum, EmailFormAbstractComponent, NgxEmailComposerModule, isValidEmail, parseEmails, parseOnlyEmails };
 //# sourceMappingURL=polpware-ngx-email-composer.js.map

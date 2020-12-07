@@ -2,7 +2,7 @@ import { ElementRef, EventEmitter } from '@angular/core';
 import { TagInputComponent } from 'ngx-chips';
 import { Observable } from 'rxjs';
 import * as i0 from "@angular/core";
-declare function isValidEmail(control: {
+export declare function isValidEmail(control: {
     value: any;
 }): {
     isValidEmail: boolean;
@@ -38,6 +38,12 @@ export interface IEmailSenderInput {
     emailTitle?: string;
     succeed?: boolean;
 }
+export interface IEmailComposerInput {
+    messageTitle?: string;
+    messageBody?: string;
+    autocompleteItemsAsync: Observable<Array<IAutoCompleteModel>>;
+    emails?: Array<any>;
+}
 export declare abstract class EmailFormAbstractComponent {
     emailInputBox: TagInputComponent;
     emailBody: ElementRef;
@@ -62,9 +68,9 @@ export declare abstract class EmailFormAbstractComponent {
     private disableFocusEvent;
     constructor();
     get isSubmitDisabled(): boolean;
+    textChanged(evt: any): void;
     submit(): void;
     onOutOfTagInput(evt: any): void;
     static ɵfac: i0.ɵɵFactoryDef<EmailFormAbstractComponent, never>;
     static ɵdir: i0.ɵɵDirectiveDefWithMeta<EmailFormAbstractComponent, never, never, { "messageTitle": "messageTitle"; "messageBody": "messageBody"; "autocompleteItemsAsync": "autocompleteItemsAsync"; "sender": "sender"; }, { "onTextChange": "onTextChange"; "onSubmit": "onSubmit"; "onSent": "onSent"; }, never>;
 }
-export {};

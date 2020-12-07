@@ -110,6 +110,9 @@
             enumerable: true,
             configurable: true
         });
+        EmailFormAbstractComponent.prototype.textChanged = function (evt) {
+            this.onTextChange.emit(evt);
+        };
         EmailFormAbstractComponent.prototype.submit = function () {
             var _this = this;
             var emails = [];
@@ -180,6 +183,7 @@
 
     exports.EmailFormAbstractComponent = EmailFormAbstractComponent;
     exports.NgxEmailComposerModule = NgxEmailComposerModule;
+    exports.isValidEmail = isValidEmail;
     exports.parseEmails = parseEmails;
     exports.parseOnlyEmails = parseOnlyEmails;
 

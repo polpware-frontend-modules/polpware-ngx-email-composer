@@ -108,6 +108,9 @@ var EmailFormAbstractComponent = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
+    EmailFormAbstractComponent.prototype.textChanged = function (evt) {
+        this.onTextChange.emit(evt);
+    };
     EmailFormAbstractComponent.prototype.submit = function () {
         var _this = this;
         var emails = [];
@@ -184,5 +187,5 @@ var EmailFormAbstractComponent = /** @class */ (function () {
  * Generated bundle index. Do not edit.
  */
 
-export { AlertTypeEnum, EmailFormAbstractComponent, NgxEmailComposerModule, parseEmails, parseOnlyEmails };
+export { AlertTypeEnum, EmailFormAbstractComponent, NgxEmailComposerModule, isValidEmail, parseEmails, parseOnlyEmails };
 //# sourceMappingURL=polpware-ngx-email-composer.js.map
