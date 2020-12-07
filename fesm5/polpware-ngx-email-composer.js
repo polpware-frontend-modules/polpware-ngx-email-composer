@@ -1,5 +1,6 @@
-import { ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope, ɵsetClassMetadata, NgModule, ɵɵdefineDirective, ɵɵviewQuery, ɵɵqueryRefresh, ɵɵloadQuery } from '@angular/core';
+import { ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope, ɵsetClassMetadata, NgModule, EventEmitter, ɵɵdefineDirective, ɵɵviewQuery, ɵɵqueryRefresh, ɵɵloadQuery } from '@angular/core';
 import { TagInputModule } from 'ngx-chips';
+import 'rxjs';
 
 var NgxEmailComposerModule = /** @class */ (function () {
     function NgxEmailComposerModule() {
@@ -77,26 +78,75 @@ function parseOnlyEmails(addr_list) {
     }
     return emails;
 }
+var AlertTypeEnum;
+(function (AlertTypeEnum) {
+    AlertTypeEnum[AlertTypeEnum["none"] = 0] = "none";
+    AlertTypeEnum[AlertTypeEnum["info"] = 1] = "info";
+    AlertTypeEnum[AlertTypeEnum["warning"] = 2] = "warning";
+    AlertTypeEnum[AlertTypeEnum["running"] = 3] = "running";
+    AlertTypeEnum[AlertTypeEnum["success"] = 4] = "success";
+    AlertTypeEnum[AlertTypeEnum["error"] = 5] = "error";
+})(AlertTypeEnum || (AlertTypeEnum = {}));
 var EmailFormAbstractComponent = /** @class */ (function () {
     function EmailFormAbstractComponent() {
+        this.onTextChange = new EventEmitter();
+        this.onSubmit = new EventEmitter();
+        this.onSent = new EventEmitter();
         this.validators = [isValidEmail];
         this.errorMessages = {
             'isValidEmail': 'Please input a valid email'
         };
-        this.title = 'Send out an email';
+        this.messageTitle = 'Email title';
         this.emails = [];
         this.messageBody = '';
         this.disableFocusEvent = false;
     }
     Object.defineProperty(EmailFormAbstractComponent.prototype, "isSubmitDisabled", {
         get: function () {
-            return this.emails.length === 0;
+            return this.emails.length === 0 || this.alertType === AlertTypeEnum.running;
         },
         enumerable: true,
         configurable: true
     });
+    EmailFormAbstractComponent.prototype.submit = function () {
+        var _this = this;
+        var emails = [];
+        this.emails.forEach(function (elem) {
+            var x = elem || (elem.value);
+            var y = parseOnlyEmails(x);
+            y.forEach(function (m) {
+                emails.push(m);
+            });
+        });
+        var outputs = {
+            confirmed: true,
+            emailReceivers: emails,
+            emailBody: this.messageBody,
+            emailTitle: this.messageTitle
+        };
+        if (this.sender) {
+            this.alertType = AlertTypeEnum.running;
+            this.alertMessage = 'The email is being sent out.';
+            this.alertSubMessage = '';
+            this.alertDismissible = false;
+            this.sender(outputs).then(function () {
+                _this.alertType = AlertTypeEnum.none;
+                _this.onSent && _this.onSent.emit({ success: true });
+            }, function (error) {
+                _this.alertType = AlertTypeEnum.error;
+                _this.alertMessage = 'Something went wrong.';
+                _this.alertDismissible = true;
+                _this.alertSubMessage = (error && error.errorInfo) ? error.errorInfo : '';
+                _this.onSent && _this.onSent.emit({ success: false });
+            });
+        }
+        this.onSubmit && this.onSubmit.emit(outputs);
+    };
     EmailFormAbstractComponent.prototype.onOutOfTagInput = function (evt) {
         var _this = this;
+        if (this.emailInputBox.dropdown && this.emailInputBox.dropdown.isVisible) {
+            return;
+        }
         if (this.disableFocusEvent) {
             return;
         }
@@ -122,7 +172,7 @@ var EmailFormAbstractComponent = /** @class */ (function () {
             var _t;
             ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.emailInputBox = _t.first);
             ɵɵqueryRefresh(_t = ɵɵloadQuery()) && (ctx.emailBody = _t.first);
-        } } });
+        } }, inputs: { messageTitle: "messageTitle", messageBody: "messageBody", autocompleteItemsAsync: "autocompleteItemsAsync", sender: "sender" }, outputs: { onTextChange: "onTextChange", onSubmit: "onSubmit", onSent: "onSent" } });
     return EmailFormAbstractComponent;
 }());
 
@@ -134,5 +184,5 @@ var EmailFormAbstractComponent = /** @class */ (function () {
  * Generated bundle index. Do not edit.
  */
 
-export { EmailFormAbstractComponent, NgxEmailComposerModule, parseEmails, parseOnlyEmails };
+export { AlertTypeEnum, EmailFormAbstractComponent, NgxEmailComposerModule, parseEmails, parseOnlyEmails };
 //# sourceMappingURL=polpware-ngx-email-composer.js.map

@@ -1,5 +1,6 @@
-import { ElementRef } from '@angular/core';
+import { ElementRef, EventEmitter } from '@angular/core';
 import { TagInputComponent } from 'ngx-chips';
+import { Observable } from 'rxjs';
 import * as i0 from "@angular/core";
 declare function isValidEmail(control: {
     value: any;
@@ -18,11 +19,41 @@ export declare function parseEmails(addr_list: string): any[];
  * @param addr_list
  */
 export declare function parseOnlyEmails(addr_list: string): any[];
+export interface IAutoCompleteModel {
+    value: any;
+    display: string;
+}
+export declare enum AlertTypeEnum {
+    none = 0,
+    info = 1,
+    warning = 2,
+    running = 3,
+    success = 4,
+    error = 5
+}
+export interface IEmailSenderInput {
+    confirmed?: boolean;
+    emailReceivers?: string[];
+    emailBody?: string;
+    emailTitle?: string;
+    succeed?: boolean;
+}
 export declare abstract class EmailFormAbstractComponent {
     emailInputBox: TagInputComponent;
     emailBody: ElementRef;
-    title: string;
+    messageTitle: string;
     messageBody: string;
+    autocompleteItemsAsync: Observable<Array<IAutoCompleteModel>>;
+    sender: (a: IEmailSenderInput) => Promise<any>;
+    onTextChange: EventEmitter<any>;
+    onSubmit: EventEmitter<IEmailSenderInput>;
+    onSent: EventEmitter<{
+        success: boolean;
+    }>;
+    alertMessage: string;
+    alertSubMessage: string;
+    alertType: AlertTypeEnum;
+    alertDismissible: boolean;
     emails: Array<any>;
     validators: (typeof isValidEmail)[];
     errorMessages: {
@@ -31,9 +62,9 @@ export declare abstract class EmailFormAbstractComponent {
     private disableFocusEvent;
     constructor();
     get isSubmitDisabled(): boolean;
-    abstract onSubmit(): void;
+    submit(): void;
     onOutOfTagInput(evt: any): void;
     static ɵfac: i0.ɵɵFactoryDef<EmailFormAbstractComponent, never>;
-    static ɵdir: i0.ɵɵDirectiveDefWithMeta<EmailFormAbstractComponent, never, never, {}, {}, never>;
+    static ɵdir: i0.ɵɵDirectiveDefWithMeta<EmailFormAbstractComponent, never, never, { "messageTitle": "messageTitle"; "messageBody": "messageBody"; "autocompleteItemsAsync": "autocompleteItemsAsync"; "sender": "sender"; }, { "onTextChange": "onTextChange"; "onSubmit": "onSubmit"; "onSent": "onSent"; }, never>;
 }
 export {};
