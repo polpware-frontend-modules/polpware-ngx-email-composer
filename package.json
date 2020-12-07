@@ -1,0 +1,24 @@
+{
+  "name": "@polpware/ngx-email-composer",
+  "version": "9.0.0",
+  "peerDependencies": {
+    "@angular/common": "^9.1.12",
+    "@angular/core": "^9.1.12",
+    "ngx-chips": "2.2.0"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "main": "bundles/polpware-ngx-email-composer.umd.js",
+  "module": "fesm5/polpware-ngx-email-composer.js",
+  "es2015": "fesm2015/polpware-ngx-email-composer.js",
+  "esm5": "esm5/polpware-ngx-email-composer.js",
+  "esm2015": "esm2015/polpware-ngx-email-composer.js",
+  "fesm5": "fesm5/polpware-ngx-email-composer.js",
+  "fesm2015": "fesm2015/polpware-ngx-email-composer.js",
+  "typings": "polpware-ngx-email-composer.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by Ivy. This is not allowed.\\nPlease delete and rebuild the package, without compiling with Ivy, before attempting to publish.\\n')\" && exit 1"
+  }
+}
