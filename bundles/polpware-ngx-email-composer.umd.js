@@ -98,7 +98,7 @@
             this.errorMessages = {
                 'isValidEmail': 'Please input a valid email'
             };
-            this.messageTitle = 'Email title';
+            this.messageTitle = '';
             this.emails = [];
             this.messageBody = '';
             this.disableFocusEvent = false;
@@ -111,7 +111,11 @@
             configurable: true
         });
         EmailFormAbstractComponent.prototype.textChanged = function (evt) {
+            this.showCloseBtn = false;
             this.onTextChange.emit(evt);
+        };
+        EmailFormAbstractComponent.prototype.otherFieldChanged = function () {
+            this.showCloseBtn = false;
         };
         EmailFormAbstractComponent.prototype.submit = function () {
             var _this = this;
@@ -131,11 +135,14 @@
             };
             if (this.sender) {
                 this.alertType = exports.AlertTypeEnum.running;
-                this.alertMessage = 'The email is being sent out.';
+                this.alertMessage = 'The email is being sent out ...';
                 this.alertSubMessage = '';
                 this.alertDismissible = false;
                 this.sender(outputs).then(function () {
-                    _this.alertType = exports.AlertTypeEnum.none;
+                    _this.alertType = exports.AlertTypeEnum.info;
+                    _this.alertMessage = 'Emails have been successfully sent out.';
+                    _this.alertDismissible = true;
+                    _this.showCloseBtn = true;
                     _this.onSent && _this.onSent.emit({ success: true });
                 }, function (error) {
                     _this.alertType = exports.AlertTypeEnum.error;

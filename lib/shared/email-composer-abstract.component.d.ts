@@ -65,10 +65,12 @@ export declare abstract class EmailFormAbstractComponent {
     errorMessages: {
         isValidEmail: string;
     };
+    showCloseBtn: boolean;
     private disableFocusEvent;
     constructor();
     get isSubmitDisabled(): boolean;
     textChanged(evt: any): void;
+    otherFieldChanged(): void;
     submit(): void;
     onOutOfTagInput(evt: any): void;
     static ɵfac: i0.ɵɵFactoryDef<EmailFormAbstractComponent, never>;

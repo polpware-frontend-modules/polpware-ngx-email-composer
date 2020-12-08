@@ -93,7 +93,7 @@ class EmailFormAbstractComponent {
         this.errorMessages = {
             'isValidEmail': 'Please input a valid email'
         };
-        this.messageTitle = 'Email title';
+        this.messageTitle = '';
         this.emails = [];
         this.messageBody = '';
         this.disableFocusEvent = false;
@@ -102,7 +102,11 @@ class EmailFormAbstractComponent {
         return this.emails.length === 0 || this.alertType === AlertTypeEnum.running;
     }
     textChanged(evt) {
+        this.showCloseBtn = false;
         this.onTextChange.emit(evt);
+    }
+    otherFieldChanged() {
+        this.showCloseBtn = false;
     }
     submit() {
         const emails = [];
@@ -121,11 +125,14 @@ class EmailFormAbstractComponent {
         };
         if (this.sender) {
             this.alertType = AlertTypeEnum.running;
-            this.alertMessage = 'The email is being sent out.';
+            this.alertMessage = 'The email is being sent out ...';
             this.alertSubMessage = '';
             this.alertDismissible = false;
             this.sender(outputs).then(() => {
-                this.alertType = AlertTypeEnum.none;
+                this.alertType = AlertTypeEnum.info;
+                this.alertMessage = 'Emails have been successfully sent out.';
+                this.alertDismissible = true;
+                this.showCloseBtn = true;
                 this.onSent && this.onSent.emit({ success: true });
             }, (error) => {
                 this.alertType = AlertTypeEnum.error;
