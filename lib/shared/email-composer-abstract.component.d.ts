@@ -1,4 +1,4 @@
-import { ElementRef, EventEmitter } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 import { TagInputComponent } from 'ngx-chips';
 import { Observable } from 'rxjs';
 import * as i0 from "@angular/core";
@@ -46,7 +46,7 @@ export interface IEmailComposerInput {
 }
 export declare abstract class EmailFormAbstractComponent {
     emailInputBox: TagInputComponent;
-    emailBody: ElementRef;
+    emailBody: any;
     messageTitle: string;
     messageBody: string;
     autocompleteItemsAsync: Observable<Array<IAutoCompleteModel>>;

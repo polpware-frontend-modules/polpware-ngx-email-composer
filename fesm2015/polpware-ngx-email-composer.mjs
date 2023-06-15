@@ -165,7 +165,12 @@ class EmailFormAbstractComponent {
         this.emailInputBox.setInputValue('');
         // Jump to other place
         this.disableFocusEvent = true;
-        this.emailBody.nativeElement.focus();
+        if (this.emailBody && this.emailBody.nativeElement) {
+            this.emailBody.nativeElement.focus();
+        }
+        else if (this.emailBody && this.emailBody.focus) {
+            this.emailBody.focus();
+        }
         this.disableFocusEvent = false;
     }
 }
