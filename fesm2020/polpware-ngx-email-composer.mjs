@@ -6,9 +6,7 @@ class NgxEmailComposerModule {
 }
 NgxEmailComposerModule.ɵfac = function NgxEmailComposerModule_Factory(t) { return new (t || NgxEmailComposerModule)(); };
 NgxEmailComposerModule.ɵmod = /*@__PURE__*/ i0.ɵɵdefineNgModule({ type: NgxEmailComposerModule });
-NgxEmailComposerModule.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ imports: [[
-            TagInputModule
-        ]] });
+NgxEmailComposerModule.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ imports: [TagInputModule] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(NgxEmailComposerModule, [{
         type: NgModule,
         args: [{
