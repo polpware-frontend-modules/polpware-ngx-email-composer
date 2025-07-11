@@ -1,5 +1,5 @@
 import * as i0 from '@angular/core';
-import { NgModule, EventEmitter, Directive, ViewChild, Input, Output } from '@angular/core';
+import { NgModule, EventEmitter, Directive, Output, Input, ViewChild } from '@angular/core';
 import { TagInputModule } from 'ngx-chips';
 
 class NgxEmailComposerModule {
@@ -7,7 +7,7 @@ class NgxEmailComposerModule {
     static { this.ɵmod = /*@__PURE__*/ i0.ɵɵdefineNgModule({ type: NgxEmailComposerModule }); }
     static { this.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ imports: [TagInputModule] }); }
 }
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(NgxEmailComposerModule, [{
+(() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(NgxEmailComposerModule, [{
         type: NgModule,
         args: [{
                 declarations: [],
@@ -179,9 +179,9 @@ class EmailFormAbstractComponent {
             i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.emailBody = _t.first);
         } }, inputs: { messageTitle: "messageTitle", messageBody: "messageBody", autocompleteItemsAsync: "autocompleteItemsAsync", sender: "sender" }, outputs: { onTextChange: "onTextChange", onSubmit: "onSubmit", onSent: "onSent" } }); }
 }
-(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(EmailFormAbstractComponent, [{
+(() => { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(EmailFormAbstractComponent, [{
         type: Directive
-    }], function () { return []; }, { emailInputBox: [{
+    }], () => [], { emailInputBox: [{
             type: ViewChild,
             args: ['emailInputBox']
         }], emailBody: [{
