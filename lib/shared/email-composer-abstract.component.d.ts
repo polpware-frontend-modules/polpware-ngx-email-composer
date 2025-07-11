@@ -74,6 +74,6 @@ export declare abstract class EmailFormAbstractComponent {
     submit(): void;
     onOutOfTagInput(evt: any): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<EmailFormAbstractComponent, never>;
-    static ɵdir: i0.ɵɵDirectiveDeclaration<EmailFormAbstractComponent, never, never, { "messageTitle": "messageTitle"; "messageBody": "messageBody"; "autocompleteItemsAsync": "autocompleteItemsAsync"; "sender": "sender"; }, { "onTextChange": "onTextChange"; "onSubmit": "onSubmit"; "onSent": "onSent"; }, never, never, false>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<EmailFormAbstractComponent, never, never, { "messageTitle": "messageTitle"; "messageBody": "messageBody"; "autocompleteItemsAsync": "autocompleteItemsAsync"; "sender": "sender"; }, { "onTextChange": "onTextChange"; "onSubmit": "onSubmit"; "onSent": "onSent"; }, never, never, false, never>;
 }
 //# sourceMappingURL=email-composer-abstract.component.d.ts.map
