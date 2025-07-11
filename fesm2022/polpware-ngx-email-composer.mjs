@@ -3,22 +3,20 @@ import { NgModule, EventEmitter, Directive, ViewChild, Input, Output } from '@an
 import { TagInputModule } from 'ngx-chips';
 
 class NgxEmailComposerModule {
+    static { this.ɵfac = function NgxEmailComposerModule_Factory(t) { return new (t || NgxEmailComposerModule)(); }; }
+    static { this.ɵmod = /*@__PURE__*/ i0.ɵɵdefineNgModule({ type: NgxEmailComposerModule }); }
+    static { this.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ imports: [TagInputModule] }); }
 }
-NgxEmailComposerModule.ɵfac = function NgxEmailComposerModule_Factory(t) { return new (t || NgxEmailComposerModule)(); };
-NgxEmailComposerModule.ɵmod = /*@__PURE__*/ i0.ɵɵdefineNgModule({ type: NgxEmailComposerModule });
-NgxEmailComposerModule.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ imports: [TagInputModule] });
-(function () {
-    (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(NgxEmailComposerModule, [{
-            type: NgModule,
-            args: [{
-                    declarations: [],
-                    imports: [
-                        TagInputModule
-                    ],
-                    exports: []
-                }]
-        }], null, null);
-})();
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(NgxEmailComposerModule, [{
+        type: NgModule,
+        args: [{
+                declarations: [],
+                imports: [
+                    TagInputModule
+                ],
+                exports: []
+            }]
+    }], null, null); })();
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0.ɵɵsetNgModuleScope(NgxEmailComposerModule, { imports: [TagInputModule] }); })();
 
 const _c0 = ["emailInputBox"];
@@ -171,44 +169,39 @@ class EmailFormAbstractComponent {
         }
         this.disableFocusEvent = false;
     }
-}
-EmailFormAbstractComponent.ɵfac = function EmailFormAbstractComponent_Factory(t) { return new (t || EmailFormAbstractComponent)(); };
-EmailFormAbstractComponent.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: EmailFormAbstractComponent, viewQuery: function EmailFormAbstractComponent_Query(rf, ctx) {
-        if (rf & 1) {
+    static { this.ɵfac = function EmailFormAbstractComponent_Factory(t) { return new (t || EmailFormAbstractComponent)(); }; }
+    static { this.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: EmailFormAbstractComponent, viewQuery: function EmailFormAbstractComponent_Query(rf, ctx) { if (rf & 1) {
             i0.ɵɵviewQuery(_c0, 5);
             i0.ɵɵviewQuery(_c1, 5);
-        }
-        if (rf & 2) {
+        } if (rf & 2) {
             let _t;
             i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.emailInputBox = _t.first);
             i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.emailBody = _t.first);
-        }
-    }, inputs: { messageTitle: "messageTitle", messageBody: "messageBody", autocompleteItemsAsync: "autocompleteItemsAsync", sender: "sender" }, outputs: { onTextChange: "onTextChange", onSubmit: "onSubmit", onSent: "onSent" } });
-(function () {
-    (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(EmailFormAbstractComponent, [{
-            type: Directive
-        }], function () { return []; }, { emailInputBox: [{
-                type: ViewChild,
-                args: ['emailInputBox']
-            }], emailBody: [{
-                type: ViewChild,
-                args: ['emailBody']
-            }], messageTitle: [{
-                type: Input
-            }], messageBody: [{
-                type: Input
-            }], autocompleteItemsAsync: [{
-                type: Input
-            }], sender: [{
-                type: Input
-            }], onTextChange: [{
-                type: Output
-            }], onSubmit: [{
-                type: Output
-            }], onSent: [{
-                type: Output
-            }] });
-})();
+        } }, inputs: { messageTitle: "messageTitle", messageBody: "messageBody", autocompleteItemsAsync: "autocompleteItemsAsync", sender: "sender" }, outputs: { onTextChange: "onTextChange", onSubmit: "onSubmit", onSent: "onSent" } }); }
+}
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(EmailFormAbstractComponent, [{
+        type: Directive
+    }], function () { return []; }, { emailInputBox: [{
+            type: ViewChild,
+            args: ['emailInputBox']
+        }], emailBody: [{
+            type: ViewChild,
+            args: ['emailBody']
+        }], messageTitle: [{
+            type: Input
+        }], messageBody: [{
+            type: Input
+        }], autocompleteItemsAsync: [{
+            type: Input
+        }], sender: [{
+            type: Input
+        }], onTextChange: [{
+            type: Output
+        }], onSubmit: [{
+            type: Output
+        }], onSent: [{
+            type: Output
+        }] }); })();
 
 /*
  * Public API Surface of ngx-email-composer
