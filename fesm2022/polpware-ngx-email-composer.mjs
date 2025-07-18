@@ -3,7 +3,7 @@ import { NgModule, EventEmitter, Directive, Output, Input, ViewChild } from '@an
 import { TagInputModule } from 'ngx-chips';
 
 class NgxEmailComposerModule {
-    static { this.ɵfac = function NgxEmailComposerModule_Factory(t) { return new (t || NgxEmailComposerModule)(); }; }
+    static { this.ɵfac = function NgxEmailComposerModule_Factory(__ngFactoryType__) { return new (__ngFactoryType__ || NgxEmailComposerModule)(); }; }
     static { this.ɵmod = /*@__PURE__*/ i0.ɵɵdefineNgModule({ type: NgxEmailComposerModule }); }
     static { this.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ imports: [TagInputModule] }); }
 }
@@ -169,7 +169,7 @@ class EmailFormAbstractComponent {
         }
         this.disableFocusEvent = false;
     }
-    static { this.ɵfac = function EmailFormAbstractComponent_Factory(t) { return new (t || EmailFormAbstractComponent)(); }; }
+    static { this.ɵfac = function EmailFormAbstractComponent_Factory(__ngFactoryType__) { return new (__ngFactoryType__ || EmailFormAbstractComponent)(); }; }
     static { this.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: EmailFormAbstractComponent, viewQuery: function EmailFormAbstractComponent_Query(rf, ctx) { if (rf & 1) {
             i0.ɵɵviewQuery(_c0, 5);
             i0.ɵɵviewQuery(_c1, 5);
