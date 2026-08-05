@@ -171,8 +171,7 @@ class EmailFormAbstractComponent {
     }
     static { this.ɵfac = function EmailFormAbstractComponent_Factory(__ngFactoryType__) { return new (__ngFactoryType__ || EmailFormAbstractComponent)(); }; }
     static { this.ɵdir = /*@__PURE__*/ i0.ɵɵdefineDirective({ type: EmailFormAbstractComponent, viewQuery: function EmailFormAbstractComponent_Query(rf, ctx) { if (rf & 1) {
-            i0.ɵɵviewQuery(_c0, 5);
-            i0.ɵɵviewQuery(_c1, 5);
+            i0.ɵɵviewQuery(_c0, 5)(_c1, 5);
         } if (rf & 2) {
             let _t;
             i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.emailInputBox = _t.first);

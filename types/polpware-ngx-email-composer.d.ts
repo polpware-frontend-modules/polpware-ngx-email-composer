@@ -1,8 +1,16 @@
+import * as i0 from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import * as i1 from 'ngx-chips';
 import { TagInputComponent } from 'ngx-chips';
 import { Observable } from 'rxjs';
-import * as i0 from "@angular/core";
-export declare function isValidEmail(control: {
+
+declare class NgxEmailComposerModule {
+    static ɵfac: i0.ɵɵFactoryDeclaration<NgxEmailComposerModule, never>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<NgxEmailComposerModule, never, [typeof i1.TagInputModule], never>;
+    static ɵinj: i0.ɵɵInjectorDeclaration<NgxEmailComposerModule>;
+}
+
+declare function isValidEmail(control: {
     value: any;
 }): {
     isValidEmail: boolean;
@@ -12,18 +20,18 @@ export declare function isValidEmail(control: {
  * Each entry is like user<user@gmail.com>
  * @param addr_list
  */
-export declare function parseEmails(addr_list: string): any[];
+declare function parseEmails(addr_list: string): any[];
 /**
  * Parses the given string into a list of email entries.
  * Each entry is just an email.
  * @param addr_list
  */
-export declare function parseOnlyEmails(addr_list: string): any[];
-export interface IAutoCompleteModel {
+declare function parseOnlyEmails(addr_list: string): any[];
+interface IAutoCompleteModel {
     value: any;
     display: string;
 }
-export declare enum AlertTypeEnum {
+declare enum AlertTypeEnum {
     none = 0,
     info = 1,
     warning = 2,
@@ -31,20 +39,20 @@ export declare enum AlertTypeEnum {
     success = 4,
     error = 5
 }
-export interface IEmailSenderInput {
+interface IEmailSenderInput {
     confirmed?: boolean;
     emailReceivers?: string[];
     emailBody?: string;
     emailTitle?: string;
     succeed?: boolean;
 }
-export interface IEmailComposerInput {
+interface IEmailComposerInput {
     messageTitle?: string;
     messageBody?: string;
     autocompleteItemsAsync: Observable<Array<IAutoCompleteModel>>;
     emails?: Array<any>;
 }
-export declare abstract class EmailFormAbstractComponent {
+declare abstract class EmailFormAbstractComponent {
     emailInputBox: TagInputComponent;
     emailBody: any;
     messageTitle: string;
@@ -76,4 +84,7 @@ export declare abstract class EmailFormAbstractComponent {
     static ɵfac: i0.ɵɵFactoryDeclaration<EmailFormAbstractComponent, never>;
     static ɵdir: i0.ɵɵDirectiveDeclaration<EmailFormAbstractComponent, never, never, { "messageTitle": { "alias": "messageTitle"; "required": false; }; "messageBody": { "alias": "messageBody"; "required": false; }; "autocompleteItemsAsync": { "alias": "autocompleteItemsAsync"; "required": false; }; "sender": { "alias": "sender"; "required": false; }; }, { "onTextChange": "onTextChange"; "onSubmit": "onSubmit"; "onSent": "onSent"; }, never, never, true, never>;
 }
-//# sourceMappingURL=email-composer-abstract.component.d.ts.map
+
+export { AlertTypeEnum, EmailFormAbstractComponent, NgxEmailComposerModule, isValidEmail, parseEmails, parseOnlyEmails };
+export type { IAutoCompleteModel, IEmailComposerInput, IEmailSenderInput };
+//# sourceMappingURL=polpware-ngx-email-composer.d.ts.map
